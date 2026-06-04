@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariba Funeral | Compassionate Care</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Config for Custom Colors & Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mariba: {
+                            dark: '#04170b',
+                            green1: '#082612',
+                            green2: '#0d381b',
+                            green3: '#134d26',
+                            gold1: '#fcfaf6',
+                            gold2: '#f0e6d3',
+                            gold3: '#d4af37',
+                            goldDark: '#a38424'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        
+        /* High-end Glassmorphism */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+        }
+        .glass-dark {
+            background: rgba(8, 38, 18, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .glass-card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+        
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800 overflow-x-hidden bg-mariba-dark">
+
+    <!-- Header / Nav (Streamlined) -->
+    <nav class="fixed w-full z-50 glass-dark transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3">
+                <img src="https://i.postimg.cc/R01hD0TJ/logo.png" alt="Mariba Funeral Logo" class="h-14 w-auto object-contain drop-shadow-md">
+                <span class="text-mariba-gold3 font-serif text-2xl font-bold tracking-wide hidden sm:block">Mariba Funeral</span>
+            </a>
+            
+            <!-- CTA Button -->
+            <div>
+                <a href="#contact" class="px-8 py-3 rounded-full bg-mariba-gold3 text-mariba-dark font-semibold hover:bg-mariba-goldDark hover:text-white transition-all duration-300 shadow-lg">
+                    Contact Us 24/7
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: HERO & QUICK ACTIONS (Dark Green) — Split Screen -->
+    <section class="relative min-h-screen pt-24 pb-48 lg:pb-56 bg-gradient-to-b from-mariba-green1 to-mariba-green2 overflow-hidden flex items-center">
+        <!-- Subtle background texture -->
+        <div class="absolute inset-0 z-0 opacity-5" style="background-image: radial-gradient(#d4af37 1px, transparent 1px); background-size: 40px 40px;"></div>
+        <!-- Ambient glow behind logo side -->
+        <div class="absolute right-0 top-0 w-1/2 h-full z-0 pointer-events-none" style="background: radial-gradient(ellipse at 70% 50%, rgba(212,175,55,0.07) 0%, transparent 70%);"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+                <!-- LEFT: Text Content -->
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-block px-4 py-1.5 rounded-full border border-mariba-gold3/40 bg-mariba-gold3/10 text-mariba-gold3 text-sm font-semibold tracking-widest uppercase mb-6 backdrop-blur-sm">
+                        Your Loved Ones Deserve The Best
+                    </div>
+                    <h1 class="text-5xl md:text-6xl xl:text-7xl font-serif text-white font-bold leading-tight mb-6">
+                        Comprehensive Funeral <span class="text-mariba-gold3 italic">Care &amp; Support</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-xl font-light leading-relaxed">
+                        Providing dignified, professional funeral services and memorials. We stand by your family with unwavering support during your time of need.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#services" class="px-10 py-4 rounded-full bg-mariba-gold3 text-mariba-dark font-bold text-lg hover:shadow-[0_10px_30px_rgba(212,175,55,0.4)] hover:-translate-y-1 transition-all duration-300 text-center">
+                            Explore Our Services
+                        </a>
+                        <a href="#contact" class="px-10 py-4 rounded-full border border-mariba-gold3/50 text-mariba-gold3 font-semibold text-lg hover:bg-mariba-gold3/10 hover:-translate-y-1 transition-all duration-300 text-center">
+                            Contact Us 24/7
+                        </a>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Logo Display -->
+                <div class="flex items-center justify-center lg:justify-end" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                    <div class="relative">
+                        <!-- Decorative pulsing rings -->
+                        <div class="absolute inset-0 rounded-full border border-mariba-gold3/20 scale-110" style="animation: pulse 4s ease-in-out infinite;"></div>
+                        <div class="absolute inset-0 rounded-full border border-mariba-gold3/10 scale-125" style="animation: pulse 6s ease-in-out infinite;"></div>
+                        <!-- Logo container -->
+                        <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-full flex items-center justify-center"
+                             style="background: radial-gradient(circle at 40% 40%, rgba(19,77,38,0.8), rgba(4,23,11,0.95)); box-shadow: 0 0 80px rgba(212,175,55,0.15), 0 30px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(212,175,55,0.2); border: 1px solid rgba(212,175,55,0.25);">
+                            <img src="https://i.postimg.cc/R01hD0TJ/logo.png"
+                                 alt="Mariba Funeral Logo"
+                                 class="w-56 md:w-72 h-auto object-contain"
+                                 style="filter: drop-shadow(0 8px 24px rgba(212,175,55,0.35));">
+                        </div>
+                        <!-- Gold accent dots -->
+                        <div class="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-mariba-gold3 opacity-70 blur-sm"></div>
+                        <div class="absolute -bottom-4 -left-4 w-4 h-4 rounded-full bg-mariba-gold3 opacity-50 blur-sm"></div>
+                        <div class="absolute top-1/4 -right-6 w-3 h-3 rounded-full bg-mariba-gold3 opacity-60"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Quick Actions Bar (Overlapping Hero) -->
+    <div class="relative z-20 max-w-7xl mx-auto px-6 -mt-24 mb-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Action 1 -->
+            <a href="#services" class="glass-panel rounded-[2rem] p-8 glass-card-hover flex items-center gap-6 group" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-16 h-16 rounded-full bg-mariba-green2 text-mariba-gold3 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-dove"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-mariba-dark mb-1">Funeral Services</h3>
+                    <p class="text-sm text-gray-600 font-medium">Plan a dignified farewell</p>
+                </div>
+            </a>
+            <!-- Action 2 -->
+            <a href="#services" class="glass-panel rounded-[2rem] p-8 glass-card-hover flex items-center gap-6 group" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-16 h-16 rounded-full bg-mariba-green2 text-mariba-gold3 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-gem"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-mariba-dark mb-1">Tombstones</h3>
+                    <p class="text-sm text-gray-600 font-medium">Lasting memorials</p>
+                </div>
+            </a>
+            <!-- Action 3 -->
+            <a href="#contact" class="glass-panel rounded-[2rem] p-8 glass-card-hover flex items-center gap-6 group" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-16 h-16 rounded-full bg-mariba-green2 text-mariba-gold3 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-phone-volume"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold text-mariba-dark mb-1">24/7 Support</h3>
+                    <p class="text-sm text-gray-600 font-medium">079 590 3144</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- SECTION 2: SERVICES (Gold) -->
+    <section id="services" class="py-24 bg-gradient-to-b from-mariba-gold1 to-mariba-gold2">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-right">
+                <div class="max-w-2xl">
+                    <h2 class="text-4xl md:text-5xl font-serif text-mariba-dark font-bold mb-4">Our Comprehensive Solutions</h2>
+                    <div class="h-1 w-24 bg-mariba-gold3 rounded-full mb-6"></div>
+                    <p class="text-mariba-dark/70 text-lg">From the initial arrangements to the final unveiling, we provide a full spectrum of services tailored to honor your family's traditions.</p>
+                </div>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service 1: Funeral Service -->
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-xl hover:-translate-y-2 transition-transform duration-500 group border border-white/50" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://i.postimg.cc/v8JyfhG6/funeral-service.jpg" alt="Funeral Service" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-mariba-dark/80 to-transparent"></div>
+                        <h3 class="absolute bottom-6 left-6 text-2xl font-serif font-bold text-white z-10">Funeral Service</h3>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-gray-600 mb-6 leading-relaxed">Complete, compassionate funeral planning and execution, handled with the utmost care and professionalism by our experienced team.</p>
+                        <a href="#contact" class="inline-flex items-center gap-2 text-mariba-green3 font-bold hover:text-mariba-goldDark transition-colors">
+                            Enquire Now <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 2: Coffins -->
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-xl hover:-translate-y-2 transition-transform duration-500 group border border-white/50" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-64 overflow-hidden relative flex items-center justify-center bg-gray-50 p-6">
+                        <img src="https://i.postimg.cc/KjFdpq4c/craiyon-100515-image.png" alt="Coffins" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-2xl">
+                        <div class="absolute inset-0 bg-gradient-to-t from-mariba-dark/80 to-transparent"></div>
+                        <h3 class="absolute bottom-6 left-6 text-2xl font-serif font-bold text-white z-10">Premium Coffins</h3>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-gray-600 mb-6 leading-relaxed">A distinguished selection of high-quality coffins and caskets, available in various premium finishes to suit your specific requirements.</p>
+                        <a href="#contact" class="inline-flex items-center gap-2 text-mariba-green3 font-bold hover:text-mariba-goldDark transition-colors">
+                            View Options <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 3: Tombstones -->
+                <div class="bg-white rounded-[2rem] overflow-hidden shadow-xl hover:-translate-y-2 transition-transform duration-500 group border border-white/50" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-64 overflow-hidden relative flex items-center justify-center bg-gray-50 p-6">
+                        <img src="https://i.postimg.cc/Qd0nkQ2G/craiyon-102123-image.png" alt="Tombstones" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-2xl">
+                        <div class="absolute inset-0 bg-gradient-to-t from-mariba-dark/80 to-transparent"></div>
+                        <h3 class="absolute bottom-6 left-6 text-2xl font-serif font-bold text-white z-10">Tombstones</h3>
+                    </div>
+                    <div class="p-8">
+                        <p class="text-gray-600 mb-6 leading-relaxed">Beautifully crafted, durable granite and marble tombstones. We offer custom designs and full professional installation services.</p>
+                        <a href="#contact" class="inline-flex items-center gap-2 text-mariba-green3 font-bold hover:text-mariba-goldDark transition-colors">
+                            View Catalog <i class="fa-solid fa-arrow-right-long"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Additional Services Strip -->
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="glass-panel rounded-[2rem] p-8 flex items-center gap-6" data-aos="fade-up">
+                    <div class="w-16 h-16 shrink-0 rounded-full bg-mariba-gold3/20 text-mariba-dark flex items-center justify-center text-2xl">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-mariba-dark mb-2">Programs & Print</h4>
+                        <p class="text-gray-600">Custom-designed funeral programs and service booklets printed on premium paper to serve as beautiful keepsakes.</p>
+                    </div>
+                </div>
+                <div class="glass-panel rounded-[2rem] p-8 flex items-center gap-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 shrink-0 rounded-full bg-mariba-gold3/20 text-mariba-dark flex items-center justify-center text-2xl">
+                        <i class="fa-solid fa-ribbon"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-mariba-dark mb-2">Unveiling Ceremonies</h4>
+                        <p class="text-gray-600">Comprehensive coordination for the unveiling of tombstones, ensuring a seamless and respectful event.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: CORPORATE TRUST & LEGACY (Green) -->
+    <section class="py-24 bg-gradient-to-b from-mariba-green2 to-mariba-green3 text-white relative">
+        <!-- Abstract Pattern Overlay -->
+        <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#d4af37 1px, transparent 1px); background-size: 30px 30px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <span class="text-mariba-gold3 uppercase tracking-widest font-bold text-sm mb-4 block">About Our Institution</span>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 text-white">Built on Trust, Defined by Compassion.</h2>
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed font-light">
+                        At Mariba Funeral, we operate with the understanding that we are entrusted with your family's most sensitive moments. Like the most respected institutions in the country, our foundation is built on reliability, unwavering support, and absolute professionalism.
+                    </p>
+                    
+                    <div class="space-y-6 mt-10">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-mariba-gold3/20 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-shield-halved text-mariba-gold3"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-1">Uncompromising Standards</h4>
+                                <p class="text-gray-400 font-light">Every service is executed with strict adherence to industry best practices and deep respect for cultural traditions.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-mariba-gold3/20 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-users text-mariba-gold3"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white mb-1">Dedicated Personnel</h4>
+                                <p class="text-gray-400 font-light">Our highly trained staff is available around the clock to provide guidance, manage logistics, and offer comfort.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stats/Trust Grid -->
+                <div class="grid grid-cols-2 gap-6" data-aos="fade-left">
+                    <div class="bg-mariba-green1/50 backdrop-blur-md rounded-[2rem] p-8 border border-white/10 text-center flex flex-col justify-center min-h-[200px] hover:border-mariba-gold3/50 transition-colors">
+                        <h3 class="text-5xl font-serif font-bold text-mariba-gold3 mb-2">24/7</h3>
+                        <p class="text-sm text-gray-300 uppercase tracking-wider">Availability</p>
+                    </div>
+                    <div class="bg-mariba-green1/50 backdrop-blur-md rounded-[2rem] p-8 border border-white/10 text-center flex flex-col justify-center min-h-[200px] hover:border-mariba-gold3/50 transition-colors mt-8">
+                        <h3 class="text-5xl font-serif font-bold text-mariba-gold3 mb-2">100%</h3>
+                        <p class="text-sm text-gray-300 uppercase tracking-wider">Commitment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: CONTACT & BRANCH DETAILS (Gold) -->
+    <section id="contact" class="py-24 bg-gradient-to-b from-mariba-gold2 to-mariba-gold3">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-serif text-mariba-dark font-bold mb-4">Contact Our Branch</h2>
+                <div class="h-1 w-24 bg-mariba-dark mx-auto rounded-full opacity-50 mb-6"></div>
+                <p class="text-mariba-dark/80 max-w-2xl mx-auto text-lg">We are ready to assist you. Visit our office or contact us via phone or email.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Location Info -->
+                <div class="glass-panel rounded-[2rem] p-10 lg:col-span-1" data-aos="fade-right">
+                    <img src="https://i.postimg.cc/R01hD0TJ/logo.png" alt="Mariba Logo" class="h-16 mb-8 drop-shadow-md">
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-location-dot text-mariba-green3 text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-mariba-dark text-lg mb-1">Physical Address</h4>
+                                <p class="text-gray-700">107 Nelson Mandela Drive<br>Mokopane</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-phone text-mariba-green3 text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-mariba-dark text-lg mb-1">24 Hour Support</h4>
+                                <p class="text-gray-700 text-xl font-semibold">079 590 3144</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-envelope text-mariba-green3 text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-mariba-dark text-lg mb-1">Email Address</h4>
+                                <a href="mailto:maribafuneral@gmail.com" class="text-mariba-green3 hover:text-mariba-dark transition-colors font-medium">maribafuneral@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form (Corporate Style) -->
+                <div class="bg-white rounded-[2rem] p-10 shadow-xl border border-white/50 lg:col-span-2" data-aos="fade-left">
+                    <h3 class="text-2xl font-serif font-bold text-mariba-dark mb-6">Send us a message</h3>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                                <input type="text" class="w-full px-5 py-4 rounded-full bg-gray-50 border border-gray-200 focus:outline-none focus:border-mariba-gold3 focus:ring-2 focus:ring-mariba-gold3/20 transition-all" placeholder="Enter your name">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" class="w-full px-5 py-4 rounded-full bg-gray-50 border border-gray-200 focus:outline-none focus:border-mariba-gold3 focus:ring-2 focus:ring-mariba-gold3/20 transition-all" placeholder="Enter your number">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">How can we help?</label>
+                            <textarea rows="4" class="w-full px-5 py-4 rounded-[1.5rem] bg-gray-50 border border-gray-200 focus:outline-none focus:border-mariba-gold3 focus:ring-2 focus:ring-mariba-gold3/20 transition-all" placeholder="Please provide details..."></textarea>
+                        </div>
+                        <button type="button" class="w-full py-4 rounded-full bg-mariba-dark text-mariba-gold3 font-bold text-lg hover:bg-mariba-green2 transition-colors shadow-lg">
+                            Submit Enquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: CORPORATE FOOTER (Dark Green) -->
+    <footer class="bg-mariba-dark text-white pt-20 pb-10 border-t-4 border-mariba-gold3">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand -->
+                <div class="lg:col-span-1" data-aos="fade-up">
+                    <img src="https://i.postimg.cc/R01hD0TJ/logo.png" alt="Mariba Funeral Logo" class="h-16 w-auto object-contain bg-white/5 p-3 rounded-2xl backdrop-blur-sm border border-white/10 mb-6">
+                    <p class="text-gray-400 font-light text-sm leading-relaxed mb-6">
+                        Committed to providing compassionate, dignified, and highly professional funeral services.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-mariba-gold3 hover:bg-mariba-gold3 hover:text-mariba-dark transition-all duration-300">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-mariba-gold3 hover:bg-mariba-gold3 hover:text-mariba-dark transition-all duration-300">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Products & Services -->
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <h4 class="text-lg font-bold text-mariba-gold3 mb-6 font-serif uppercase tracking-wider">Our Services</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Funeral Planning</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Premium Coffins</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Tombstone Designs</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Service Programs</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Unveiling Ceremonies</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal / Corporate -->
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h4 class="text-lg font-bold text-mariba-gold3 mb-6 font-serif uppercase tracking-wider">Legal</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Terms & Conditions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Compliance</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">PAIA Manual</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Box -->
+                <div class="bg-mariba-green1 rounded-[2rem] p-6 border border-white/5" data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="text-lg font-bold text-white mb-4 font-serif">Need Immediate Assistance?</h4>
+                    <p class="text-gray-400 text-sm mb-4">Our lines are open 24 hours a day, 7 days a week.</p>
+                    <a href="tel:0795903144" class="block w-full py-3 text-center rounded-full bg-mariba-gold3 text-mariba-dark font-bold hover:bg-mariba-goldDark hover:text-white transition-colors">
+                        Call 079 590 3144
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-xs font-light">
+                    &copy; 2026 Mariba Funeral. All rights reserved.
+                </p>
+                <p class="text-gray-500 text-xs font-light">
+                    Your loved ones deserve the best.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Initialization script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-out-cubic',
+        });
+        
+        // Dynamic Navbar Background on Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg');
+                nav.style.background = 'rgba(4, 23, 11, 0.95)';
+            } else {
+                nav.classList.remove('shadow-lg');
+                nav.style.background = 'rgba(8, 38, 18, 0.85)';
+            }
+        });
+    </script>
+</body>
+</html>
