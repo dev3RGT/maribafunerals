@@ -65,21 +65,48 @@
             border-color: rgba(212, 175, 55, 0.5);
         }
 
-        /* Service cards: fixed height with 80% image / 20% text split */
+        /* Service cards: 80% image / 20% text, no overlays */
         .service-card {
-            height: 480px;
+            height: 360px;
+            display: flex;
+            flex-direction: column;
+        }
+        @media (min-width: 640px) {
+            .service-card { height: 440px; }
+        }
+        @media (min-width: 1024px) {
+            .service-card { height: 480px; }
         }
         .service-card .card-image {
-            height: 80%;
+            flex: 0 0 80%;
             overflow: hidden;
+            position: relative;
         }
         .service-card .card-image img {
             width: 100%;
             height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .service-card .card-image.contain-img {
+            background: #f9f9f7;
+        }
+        .service-card .card-image.contain-img img {
+            object-fit: contain;
+            padding: 1rem;
+        }
+        @media (min-width: 640px) {
+            .service-card .card-image.contain-img img { padding: 1.5rem; }
         }
         .service-card .card-body {
-            height: 20%;
-            overflow: hidden;
+            flex: 0 0 20%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1rem;
+        }
+        @media (min-width: 640px) {
+            .service-card .card-body { padding: 0 1.5rem; }
         }
         
         html { scroll-behavior: smooth; }
@@ -89,68 +116,72 @@
 
     <!-- Header / Nav (Streamlined) -->
     <nav class="fixed w-full z-50 glass-dark transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
             <!-- Logo -->
-            <a href="#" class="flex items-center gap-3">
-                <img src="https://i.postimg.cc/R01hD0TJ/logo.png" alt="Mariba Funeral Logo" class="h-14 w-auto object-contain drop-shadow-md">
-                <span class="text-mariba-gold3 font-serif text-2xl font-bold tracking-wide hidden sm:block">Mariba Funeral</span>
+            <a href="#" class="flex items-center gap-2 sm:gap-3">
+                <img src="https://i.postimg.cc/R01hD0TJ/logo.png" alt="Mariba Funeral Logo" class="h-10 sm:h-14 w-auto object-contain drop-shadow-md">
+                <span class="text-mariba-gold3 font-serif text-lg sm:text-2xl font-bold tracking-wide hidden sm:block">Mariba Funeral</span>
             </a>
-            
             <!-- CTA Button -->
-            <div>
-                <a href="#contact" class="px-8 py-3 rounded-full bg-mariba-gold3 text-mariba-dark font-semibold hover:bg-mariba-goldDark hover:text-white transition-all duration-300 shadow-lg">
-                    Contact Us 24/7
-                </a>
-            </div>
+            <a href="#contact" class="px-4 sm:px-8 py-2.5 sm:py-3 rounded-full bg-mariba-gold3 text-mariba-dark font-semibold text-sm sm:text-base hover:bg-mariba-goldDark hover:text-white transition-all duration-300 shadow-lg whitespace-nowrap">
+                <span class="sm:hidden">Call Us</span>
+                <span class="hidden sm:inline">Contact Us 24/7</span>
+            </a>
         </div>
     </nav>
 
     <!-- SECTION 1: HERO & QUICK ACTIONS (Dark Green) — Split Screen -->
-    <section class="relative min-h-screen pt-24 pb-48 lg:pb-56 bg-gradient-to-b from-mariba-green1 to-mariba-green2 overflow-hidden flex items-center">
-        <!-- Subtle background texture -->
+    <section class="relative min-h-screen pt-16 sm:pt-20 pb-36 sm:pb-48 lg:pb-56 bg-gradient-to-b from-mariba-green1 to-mariba-green2 overflow-hidden flex items-center">
         <div class="absolute inset-0 z-0 opacity-5" style="background-image: radial-gradient(#d4af37 1px, transparent 1px); background-size: 40px 40px;"></div>
-        <!-- Ambient glow behind logo side -->
         <div class="absolute right-0 top-0 w-1/2 h-full z-0 pointer-events-none" style="background: radial-gradient(ellipse at 70% 50%, rgba(212,175,55,0.07) 0%, transparent 70%);"></div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
 
-                <!-- LEFT: Text Content -->
-                <div data-aos="fade-right" data-aos-duration="1000">
-                    <div class="inline-block px-4 py-1.5 rounded-full border border-mariba-gold3/40 bg-mariba-gold3/10 text-mariba-gold3 text-sm font-semibold tracking-widest uppercase mb-6 backdrop-blur-sm">
+                <!-- Logo — shows above text on mobile only -->
+                <div class="flex items-center justify-center lg:hidden" data-aos="fade-down" data-aos-duration="800">
+                    <div class="relative">
+                        <div class="relative w-44 h-44 sm:w-56 sm:h-56 rounded-full flex items-center justify-center"
+                             style="background: radial-gradient(circle at 40% 40%, rgba(19,77,38,0.8), rgba(4,23,11,0.95)); box-shadow: 0 0 60px rgba(212,175,55,0.12), 0 20px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(212,175,55,0.2); border: 1px solid rgba(212,175,55,0.25);">
+                            <img src="https://i.postimg.cc/R01hD0TJ/logo.png" alt="Mariba Funeral Logo"
+                                 class="w-32 sm:w-40 h-auto object-contain"
+                                 style="filter: drop-shadow(0 6px 16px rgba(212,175,55,0.35));">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div data-aos="fade-right" data-aos-duration="1000" class="text-center lg:text-left">
+                    <div class="inline-block px-3 sm:px-4 py-1.5 rounded-full border border-mariba-gold3/40 bg-mariba-gold3/10 text-mariba-gold3 text-xs sm:text-sm font-semibold tracking-widest uppercase mb-4 sm:mb-6 backdrop-blur-sm">
                         Your Loved Ones Deserve The Best
                     </div>
-                    <h1 class="text-5xl md:text-6xl xl:text-7xl font-serif text-white font-bold leading-tight mb-6">
+                    <h1 class="text-3xl sm:text-5xl md:text-6xl xl:text-7xl font-serif text-white font-bold leading-tight mb-4 sm:mb-6">
                         Comprehensive Funeral <span class="text-mariba-gold3 italic">Care &amp; Support</span>
                     </h1>
-                    <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-xl font-light leading-relaxed">
+                    <p class="text-base sm:text-lg md:text-xl text-gray-200 mb-6 sm:mb-10 font-light leading-relaxed mx-auto lg:mx-0 max-w-xl">
                         Providing dignified, professional funeral services and memorials. We stand by your family with unwavering support during your time of need.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#services" class="px-10 py-4 rounded-full bg-mariba-gold3 text-mariba-dark font-bold text-lg hover:shadow-[0_10px_30px_rgba(212,175,55,0.4)] hover:-translate-y-1 transition-all duration-300 text-center">
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
+                        <a href="#services" class="px-8 sm:px-10 py-3.5 sm:py-4 rounded-full bg-mariba-gold3 text-mariba-dark font-bold text-base sm:text-lg hover:shadow-[0_10px_30px_rgba(212,175,55,0.4)] hover:-translate-y-1 transition-all duration-300 text-center">
                             Explore Our Services
                         </a>
-                        <a href="#contact" class="px-10 py-4 rounded-full border border-mariba-gold3/50 text-mariba-gold3 font-semibold text-lg hover:bg-mariba-gold3/10 hover:-translate-y-1 transition-all duration-300 text-center">
+                        <a href="#contact" class="px-8 sm:px-10 py-3.5 sm:py-4 rounded-full border border-mariba-gold3/50 text-mariba-gold3 font-semibold text-base sm:text-lg hover:bg-mariba-gold3/10 hover:-translate-y-1 transition-all duration-300 text-center">
                             Contact Us 24/7
                         </a>
                     </div>
                 </div>
 
-                <!-- RIGHT: Logo Display -->
-                <div class="flex items-center justify-center lg:justify-end" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
+                <!-- RIGHT: Logo — desktop only -->
+                <div class="hidden lg:flex items-center justify-end" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
                     <div class="relative">
-                        <!-- Decorative pulsing rings -->
                         <div class="absolute inset-0 rounded-full border border-mariba-gold3/20 scale-110" style="animation: pulse 4s ease-in-out infinite;"></div>
                         <div class="absolute inset-0 rounded-full border border-mariba-gold3/10 scale-125" style="animation: pulse 6s ease-in-out infinite;"></div>
-                        <!-- Logo container -->
-                        <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-full flex items-center justify-center"
+                        <div class="relative w-96 h-96 rounded-full flex items-center justify-center"
                              style="background: radial-gradient(circle at 40% 40%, rgba(19,77,38,0.8), rgba(4,23,11,0.95)); box-shadow: 0 0 80px rgba(212,175,55,0.15), 0 30px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(212,175,55,0.2); border: 1px solid rgba(212,175,55,0.25);">
-                            <img src="https://i.postimg.cc/R01hD0TJ/logo.png"
-                                 alt="Mariba Funeral Logo"
-                                 class="w-56 md:w-72 h-auto object-contain"
+                            <img src="https://i.postimg.cc/R01hD0TJ/logo.png" alt="Mariba Funeral Logo"
+                                 class="w-72 h-auto object-contain"
                                  style="filter: drop-shadow(0 8px 24px rgba(212,175,55,0.35));">
                         </div>
-                        <!-- Gold accent dots -->
                         <div class="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-mariba-gold3 opacity-70 blur-sm"></div>
                         <div class="absolute -bottom-4 -left-4 w-4 h-4 rounded-full bg-mariba-gold3 opacity-50 blur-sm"></div>
                         <div class="absolute top-1/4 -right-6 w-3 h-3 rounded-full bg-mariba-gold3 opacity-60"></div>
@@ -162,61 +193,61 @@
     </section>
 
     <!-- Corporate Quick Actions Bar (Overlapping Hero) -->
-    <div class="relative z-20 max-w-7xl mx-auto px-6 -mt-24 mb-16">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 -mt-12 sm:-mt-24 mb-10 sm:mb-16">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6">
             <!-- Action 1 -->
-            <a href="#services" class="glass-panel rounded-[2rem] p-8 glass-card-hover flex items-center gap-6 group" data-aos="fade-up" data-aos-delay="100">
-                <div class="w-16 h-16 rounded-full bg-mariba-green2 text-mariba-gold3 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+            <a href="#services" class="glass-panel rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 glass-card-hover flex items-center gap-4 sm:gap-6 group" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-12 h-12 sm:w-16 sm:h-16 shrink-0 rounded-full bg-mariba-green2 text-mariba-gold3 flex items-center justify-center text-xl sm:text-2xl group-hover:scale-110 transition-transform">
                     <i class="fa-solid fa-dove"></i>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold text-mariba-dark mb-1">Funeral Services</h3>
-                    <p class="text-sm text-gray-600 font-medium">Plan a dignified farewell</p>
+                    <h3 class="text-base sm:text-xl font-bold text-mariba-dark mb-0.5 sm:mb-1">Funeral Services</h3>
+                    <p class="text-xs sm:text-sm text-gray-600 font-medium">Plan a dignified farewell</p>
                 </div>
             </a>
             <!-- Action 2 -->
-            <a href="#services" class="glass-panel rounded-[2rem] p-8 glass-card-hover flex items-center gap-6 group" data-aos="fade-up" data-aos-delay="200">
-                <div class="w-16 h-16 rounded-full bg-mariba-green2 text-mariba-gold3 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+            <a href="#services" class="glass-panel rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 glass-card-hover flex items-center gap-4 sm:gap-6 group" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-12 h-12 sm:w-16 sm:h-16 shrink-0 rounded-full bg-mariba-green2 text-mariba-gold3 flex items-center justify-center text-xl sm:text-2xl group-hover:scale-110 transition-transform">
                     <i class="fa-solid fa-gem"></i>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold text-mariba-dark mb-1">Tombstones</h3>
-                    <p class="text-sm text-gray-600 font-medium">Lasting memorials</p>
+                    <h3 class="text-base sm:text-xl font-bold text-mariba-dark mb-0.5 sm:mb-1">Tombstones</h3>
+                    <p class="text-xs sm:text-sm text-gray-600 font-medium">Lasting memorials</p>
                 </div>
             </a>
             <!-- Action 3 -->
-            <a href="#contact" class="glass-panel rounded-[2rem] p-8 glass-card-hover flex items-center gap-6 group" data-aos="fade-up" data-aos-delay="300">
-                <div class="w-16 h-16 rounded-full bg-mariba-green2 text-mariba-gold3 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+            <a href="#contact" class="glass-panel rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 glass-card-hover flex items-center gap-4 sm:gap-6 group" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-12 h-12 sm:w-16 sm:h-16 shrink-0 rounded-full bg-mariba-green2 text-mariba-gold3 flex items-center justify-center text-xl sm:text-2xl group-hover:scale-110 transition-transform">
                     <i class="fa-solid fa-phone-volume"></i>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold text-mariba-dark mb-1">24/7 Support</h3>
-                    <p class="text-sm text-gray-600 font-medium">079 590 3144</p>
+                    <h3 class="text-base sm:text-xl font-bold text-mariba-dark mb-0.5 sm:mb-1">24/7 Support</h3>
+                    <p class="text-xs sm:text-sm text-gray-600 font-medium">079 590 3144</p>
                 </div>
             </a>
         </div>
     </div>
 
     <!-- SECTION 2: SERVICES (Gold) -->
-    <section id="services" class="py-24 bg-gradient-to-b from-mariba-gold1 to-mariba-gold2">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-right">
+    <section id="services" class="py-14 sm:py-24 bg-gradient-to-b from-mariba-gold1 to-mariba-gold2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-10 sm:mb-16 gap-4 sm:gap-6" data-aos="fade-right">
                 <div class="max-w-2xl">
-                    <h2 class="text-4xl md:text-5xl font-serif text-mariba-dark font-bold mb-4">Our Comprehensive Solutions</h2>
-                    <div class="h-1 w-24 bg-mariba-gold3 rounded-full mb-6"></div>
-                    <p class="text-mariba-dark/70 text-lg">From the initial arrangements to the final unveiling, we provide a full spectrum of services tailored to honor your family's traditions.</p>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif text-mariba-dark font-bold mb-3 sm:mb-4">Our Comprehensive Solutions</h2>
+                    <div class="h-1 w-24 bg-mariba-gold3 rounded-full mb-4 sm:mb-6"></div>
+                    <p class="text-mariba-dark/70 text-base sm:text-lg">From the initial arrangements to the final unveiling, we provide a full spectrum of services tailored to honor your family's traditions.</p>
                 </div>
             </div>
 
             <!-- Services Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
                 
                 <!-- Service 1: Funeral Service -->
-                <div class="service-card bg-white rounded-[2rem] overflow-hidden shadow-xl hover:-translate-y-2 transition-transform duration-500 group border border-white/50 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card bg-white rounded-[2rem] overflow-hidden shadow-xl hover:-translate-y-2 transition-transform duration-500 group border border-white/50" data-aos="fade-up" data-aos-delay="100">
                     <div class="card-image">
-                        <img src="https://i.postimg.cc/v8JyfhG6/funeral-service.jpg" alt="Funeral Service" class="object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="https://i.postimg.cc/v8JyfhG6/funeral-service.jpg" alt="Funeral Service" class="group-hover:scale-105 transition-transform duration-700">
                     </div>
-                    <div class="card-body p-5 flex flex-col justify-between">
+                    <div class="card-body">
                         <h3 class="text-lg font-serif font-bold text-mariba-dark">Funeral Service</h3>
                         <a href="#contact" class="inline-flex items-center gap-2 text-mariba-green3 font-bold hover:text-mariba-goldDark transition-colors text-sm">
                             Enquire Now <i class="fa-solid fa-arrow-right-long"></i>
@@ -225,11 +256,11 @@
                 </div>
 
                 <!-- Service 2: Coffins -->
-                <div class="service-card bg-white rounded-[2rem] overflow-hidden shadow-xl hover:-translate-y-2 transition-transform duration-500 group border border-white/50 flex flex-col" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card-image bg-gray-50 flex items-center justify-center p-6">
-                        <img src="https://i.postimg.cc/KjFdpq4c/craiyon-100515-image.png" alt="Coffins" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-xl">
+                <div class="service-card bg-white rounded-[2rem] overflow-hidden shadow-xl hover:-translate-y-2 transition-transform duration-500 group border border-white/50" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-image contain-img">
+                        <img src="https://i.postimg.cc/KjFdpq4c/craiyon-100515-image.png" alt="Coffins" class="group-hover:scale-105 transition-transform duration-700 drop-shadow-xl">
                     </div>
-                    <div class="card-body p-5 flex flex-col justify-between">
+                    <div class="card-body">
                         <h3 class="text-lg font-serif font-bold text-mariba-dark">Premium Coffins</h3>
                         <a href="#contact" class="inline-flex items-center gap-2 text-mariba-green3 font-bold hover:text-mariba-goldDark transition-colors text-sm">
                             View Options <i class="fa-solid fa-arrow-right-long"></i>
@@ -238,11 +269,11 @@
                 </div>
 
                 <!-- Service 3: Tombstones -->
-                <div class="service-card bg-white rounded-[2rem] overflow-hidden shadow-xl hover:-translate-y-2 transition-transform duration-500 group border border-white/50 flex flex-col" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card-image bg-gray-50 flex items-center justify-center p-6">
-                        <img src="https://i.postimg.cc/Qd0nkQ2G/craiyon-102123-image.png" alt="Tombstones" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-xl">
+                <div class="service-card bg-white rounded-[2rem] overflow-hidden shadow-xl hover:-translate-y-2 transition-transform duration-500 group border border-white/50" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-image contain-img">
+                        <img src="https://i.postimg.cc/Qd0nkQ2G/craiyon-102123-image.png" alt="Tombstones" class="group-hover:scale-105 transition-transform duration-700 drop-shadow-xl">
                     </div>
-                    <div class="card-body p-5 flex flex-col justify-between">
+                    <div class="card-body">
                         <h3 class="text-lg font-serif font-bold text-mariba-dark">Tombstones</h3>
                         <a href="#contact" class="inline-flex items-center gap-2 text-mariba-green3 font-bold hover:text-mariba-goldDark transition-colors text-sm">
                             View Catalog <i class="fa-solid fa-arrow-right-long"></i>
@@ -253,23 +284,23 @@
             </div>
 
             <!-- Additional Services Strip -->
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="glass-panel rounded-[2rem] p-8 flex items-center gap-6" data-aos="fade-up">
-                    <div class="w-16 h-16 shrink-0 rounded-full bg-mariba-gold3/20 text-mariba-dark flex items-center justify-center text-2xl">
+            <div class="mt-5 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
+                <div class="glass-panel rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 flex items-center gap-4 sm:gap-6" data-aos="fade-up">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 shrink-0 rounded-full bg-mariba-gold3/20 text-mariba-dark flex items-center justify-center text-xl sm:text-2xl">
                         <i class="fa-solid fa-book-open"></i>
                     </div>
                     <div>
-                        <h4 class="text-xl font-bold text-mariba-dark mb-2">Programs & Print</h4>
-                        <p class="text-gray-600">Custom-designed funeral programs and service booklets printed on premium paper to serve as beautiful keepsakes.</p>
+                        <h4 class="text-base sm:text-xl font-bold text-mariba-dark mb-1 sm:mb-2">Programs & Print</h4>
+                        <p class="text-sm sm:text-base text-gray-600">Custom-designed funeral programs and service booklets printed on premium paper to serve as beautiful keepsakes.</p>
                     </div>
                 </div>
-                <div class="glass-panel rounded-[2rem] p-8 flex items-center gap-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 shrink-0 rounded-full bg-mariba-gold3/20 text-mariba-dark flex items-center justify-center text-2xl">
+                <div class="glass-panel rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 flex items-center gap-4 sm:gap-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 shrink-0 rounded-full bg-mariba-gold3/20 text-mariba-dark flex items-center justify-center text-xl sm:text-2xl">
                         <i class="fa-solid fa-ribbon"></i>
                     </div>
                     <div>
-                        <h4 class="text-xl font-bold text-mariba-dark mb-2">Unveiling Ceremonies</h4>
-                        <p class="text-gray-600">Comprehensive coordination for the unveiling of tombstones, ensuring a seamless and respectful event.</p>
+                        <h4 class="text-base sm:text-xl font-bold text-mariba-dark mb-1 sm:mb-2">Unveiling Ceremonies</h4>
+                        <p class="text-sm sm:text-base text-gray-600">Comprehensive coordination for the unveiling of tombstones, ensuring a seamless and respectful event.</p>
                     </div>
                 </div>
             </div>
@@ -277,50 +308,49 @@
     </section>
 
     <!-- SECTION 3: CORPORATE TRUST & LEGACY (Green) -->
-    <section class="py-24 bg-gradient-to-b from-mariba-green2 to-mariba-green3 text-white relative">
-        <!-- Abstract Pattern Overlay -->
+    <section class="py-14 sm:py-24 bg-gradient-to-b from-mariba-green2 to-mariba-green3 text-white relative">
         <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#d4af37 1px, transparent 1px); background-size: 30px 30px;"></div>
         
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center">
                 <div data-aos="fade-right">
-                    <span class="text-mariba-gold3 uppercase tracking-widest font-bold text-sm mb-4 block">About Our Institution</span>
-                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6 text-white">Built on Trust, Defined by Compassion.</h2>
-                    <p class="text-lg text-gray-300 mb-6 leading-relaxed font-light">
+                    <span class="text-mariba-gold3 uppercase tracking-widest font-bold text-xs sm:text-sm mb-3 sm:mb-4 block">About Our Institution</span>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold mb-4 sm:mb-6 text-white">Built on Trust, Defined by Compassion.</h2>
+                    <p class="text-base sm:text-lg text-gray-300 mb-4 sm:mb-6 leading-relaxed font-light">
                         At Mariba Funeral, we operate with the understanding that we are entrusted with your family's most sensitive moments. Like the most respected institutions in the country, our foundation is built on reliability, unwavering support, and absolute professionalism.
                     </p>
                     
-                    <div class="space-y-6 mt-10">
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-full bg-mariba-gold3/20 flex items-center justify-center shrink-0">
-                                <i class="fa-solid fa-shield-halved text-mariba-gold3"></i>
+                    <div class="space-y-4 sm:space-y-6 mt-6 sm:mt-10">
+                        <div class="flex gap-3 sm:gap-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-mariba-gold3/20 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-shield-halved text-mariba-gold3 text-sm sm:text-base"></i>
                             </div>
                             <div>
-                                <h4 class="text-xl font-bold text-white mb-1">Uncompromising Standards</h4>
-                                <p class="text-gray-400 font-light">Every service is executed with strict adherence to industry best practices and deep respect for cultural traditions.</p>
+                                <h4 class="text-base sm:text-xl font-bold text-white mb-0.5 sm:mb-1">Uncompromising Standards</h4>
+                                <p class="text-sm sm:text-base text-gray-400 font-light">Every service is executed with strict adherence to industry best practices and deep respect for cultural traditions.</p>
                             </div>
                         </div>
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-full bg-mariba-gold3/20 flex items-center justify-center shrink-0">
-                                <i class="fa-solid fa-users text-mariba-gold3"></i>
+                        <div class="flex gap-3 sm:gap-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-mariba-gold3/20 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-users text-mariba-gold3 text-sm sm:text-base"></i>
                             </div>
                             <div>
-                                <h4 class="text-xl font-bold text-white mb-1">Dedicated Personnel</h4>
-                                <p class="text-gray-400 font-light">Our highly trained staff is available around the clock to provide guidance, manage logistics, and offer comfort.</p>
+                                <h4 class="text-base sm:text-xl font-bold text-white mb-0.5 sm:mb-1">Dedicated Personnel</h4>
+                                <p class="text-sm sm:text-base text-gray-400 font-light">Our highly trained staff is available around the clock to provide guidance, manage logistics, and offer comfort.</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Stats/Trust Grid -->
-                <div class="grid grid-cols-2 gap-6" data-aos="fade-left">
-                    <div class="bg-mariba-green1/50 backdrop-blur-md rounded-[2rem] p-8 border border-white/10 text-center flex flex-col justify-center min-h-[200px] hover:border-mariba-gold3/50 transition-colors">
-                        <h3 class="text-5xl font-serif font-bold text-mariba-gold3 mb-2">24/7</h3>
-                        <p class="text-sm text-gray-300 uppercase tracking-wider">Availability</p>
+                <!-- Stats/Trust Grid — no stagger offset on mobile -->
+                <div class="grid grid-cols-2 gap-4 sm:gap-6" data-aos="fade-left">
+                    <div class="bg-mariba-green1/50 backdrop-blur-md rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 border border-white/10 text-center flex flex-col justify-center min-h-[140px] sm:min-h-[200px] hover:border-mariba-gold3/50 transition-colors">
+                        <h3 class="text-4xl sm:text-5xl font-serif font-bold text-mariba-gold3 mb-1 sm:mb-2">24/7</h3>
+                        <p class="text-xs sm:text-sm text-gray-300 uppercase tracking-wider">Availability</p>
                     </div>
-                    <div class="bg-mariba-green1/50 backdrop-blur-md rounded-[2rem] p-8 border border-white/10 text-center flex flex-col justify-center min-h-[200px] hover:border-mariba-gold3/50 transition-colors mt-8">
-                        <h3 class="text-5xl font-serif font-bold text-mariba-gold3 mb-2">100%</h3>
-                        <p class="text-sm text-gray-300 uppercase tracking-wider">Commitment</p>
+                    <div class="bg-mariba-green1/50 backdrop-blur-md rounded-[1.5rem] sm:rounded-[2rem] p-5 sm:p-8 border border-white/10 text-center flex flex-col justify-center min-h-[140px] sm:min-h-[200px] hover:border-mariba-gold3/50 transition-colors sm:mt-8">
+                        <h3 class="text-4xl sm:text-5xl font-serif font-bold text-mariba-gold3 mb-1 sm:mb-2">100%</h3>
+                        <p class="text-xs sm:text-sm text-gray-300 uppercase tracking-wider">Commitment</p>
                     </div>
                 </div>
             </div>
@@ -328,18 +358,18 @@
     </section>
 
     <!-- SECTION 4: CONTACT & BRANCH DETAILS (Gold) -->
-    <section id="contact" class="py-24 bg-gradient-to-b from-mariba-gold2 to-mariba-gold3">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-serif text-mariba-dark font-bold mb-4">Contact Our Branch</h2>
-                <div class="h-1 w-24 bg-mariba-dark mx-auto rounded-full opacity-50 mb-6"></div>
-                <p class="text-mariba-dark/80 max-w-2xl mx-auto text-lg">We are ready to assist you. Visit our office or contact us via phone or email.</p>
+    <section id="contact" class="py-14 sm:py-24 bg-gradient-to-b from-mariba-gold2 to-mariba-gold3">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-10 sm:mb-16" data-aos="fade-up">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif text-mariba-dark font-bold mb-3 sm:mb-4">Contact Our Branch</h2>
+                <div class="h-1 w-24 bg-mariba-dark mx-auto rounded-full opacity-50 mb-4 sm:mb-6"></div>
+                <p class="text-mariba-dark/80 max-w-2xl mx-auto text-base sm:text-lg">We are ready to assist you. Visit our office or contact us via phone or email.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-8">
                 <!-- Location Info -->
-                <div class="glass-panel rounded-[2rem] p-10 lg:col-span-1" data-aos="fade-right">
-                    <img src="https://i.postimg.cc/R01hD0TJ/logo.png" alt="Mariba Logo" class="h-16 mb-8 drop-shadow-md">
+                <div class="glass-panel rounded-[1.5rem] sm:rounded-[2rem] p-6 sm:p-10 lg:col-span-1" data-aos="fade-right">
+                    <img src="https://i.postimg.cc/R01hD0TJ/logo.png" alt="Mariba Logo" class="h-12 sm:h-16 mb-5 sm:mb-8 drop-shadow-md">
                     
                     <div class="space-y-8">
                         <div class="flex items-start gap-4">
@@ -367,8 +397,8 @@
                 </div>
 
                 <!-- Contact Form (Corporate Style) -->
-                <div class="bg-white rounded-[2rem] p-10 shadow-xl border border-white/50 lg:col-span-2" data-aos="fade-left">
-                    <h3 class="text-2xl font-serif font-bold text-mariba-dark mb-6">Send us a message</h3>
+                <div class="bg-white rounded-[1.5rem] sm:rounded-[2rem] p-6 sm:p-10 shadow-xl border border-white/50 lg:col-span-2" data-aos="fade-left">
+                    <h3 class="text-xl sm:text-2xl font-serif font-bold text-mariba-dark mb-4 sm:mb-6">Send us a message</h3>
                     <form class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
@@ -394,9 +424,9 @@
     </section>
 
     <!-- SECTION 5: CORPORATE FOOTER (Dark Green) -->
-    <footer class="bg-mariba-dark text-white pt-20 pb-10 border-t-4 border-mariba-gold3">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+    <footer class="bg-mariba-dark text-white pt-12 sm:pt-20 pb-8 sm:pb-10 border-t-4 border-mariba-gold3">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-10 sm:mb-16">
                 <!-- Brand -->
                 <div class="lg:col-span-1" data-aos="fade-up">
                     <img src="https://i.postimg.cc/R01hD0TJ/logo.png" alt="Mariba Funeral Logo" class="h-16 w-auto object-contain bg-white/5 p-3 rounded-2xl backdrop-blur-sm border border-white/10 mb-6">
@@ -462,8 +492,9 @@
     <script>
         AOS.init({
             once: true,
-            offset: 50,
-            duration: 800,
+            offset: window.innerWidth < 640 ? 20 : 50,
+            duration: window.innerWidth < 640 ? 600 : 800,
+            disable: false,
             easing: 'ease-out-cubic',
         });
         
