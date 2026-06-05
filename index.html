@@ -156,33 +156,38 @@
 
     <!-- SECTION 1: HERO & QUICK ACTIONS (Dark Green) — Split Screen -->
     <section class="relative min-h-screen pt-16 sm:pt-20 pb-36 sm:pb-48 lg:pb-56 bg-gradient-to-b from-mariba-green1 to-mariba-green2 overflow-hidden flex items-center">
+
+        <!-- Dot pattern -->
         <div class="absolute inset-0 z-0 opacity-5" style="background-image: radial-gradient(#d4af37 1px, transparent 1px); background-size: 40px 40px;"></div>
-        <div class="absolute right-0 top-0 w-1/2 h-full z-0 pointer-events-none" style="background: radial-gradient(ellipse at 70% 50%, rgba(212,175,55,0.07) 0%, transparent 70%);"></div>
+
+        <!-- RIGHT: Full-bleed image covering the entire right half, desktop only -->
+        <div class="absolute top-0 right-0 w-1/2 h-full z-0 hidden lg:block">
+            <img src="https://i.postimg.cc/v8JyfhG6/funeral-service.jpg"
+                 alt="Mariba Funeral Service"
+                 class="w-full h-full object-cover"
+                 style="filter: brightness(0.88) contrast(1.05);">
+            <!-- Left-edge blend into the green background -->
+            <div class="absolute inset-0" style="background: linear-gradient(to right, rgba(8,38,18,1) 0%, rgba(8,38,18,0.2) 30%, transparent 60%);"></div>
+            <!-- Bottom fade -->
+            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(13,56,27,0.75) 0%, transparent 40%);"></div>
+        </div>
+
+        <!-- LEFT: Text content -->
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
-                <!-- Funeral Service Image — shows above text on mobile only -->
-                <div class="flex items-center justify-center lg:hidden" data-aos="fade-down" data-aos-duration="800">
-                    <div class="relative w-full max-w-sm sm:max-w-md">
-                        <div class="relative w-full h-56 sm:h-72 rounded-[1.5rem] overflow-hidden"
-                             style="box-shadow: 0 0 40px rgba(212,175,55,0.12), 0 20px 40px rgba(0,0,0,0.4); border: 1px solid rgba(212,175,55,0.3);">
-                            <img src="https://i.postimg.cc/v8JyfhG6/funeral-service.jpg" alt="Mariba Funeral Service"
-                                 class="w-full h-full object-cover"
-                                 style="filter: brightness(0.92) contrast(1.05);">
-                            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(4,23,11,0.55) 0%, rgba(4,23,11,0.1) 40%, transparent 70%);"></div>
-                            <div class="absolute top-0 left-0 right-0 h-px" style="background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent);"></div>
-                            <div class="absolute bottom-4 left-4 flex items-center gap-2 px-3 py-2 rounded-full"
-                                 style="background: rgba(4,23,11,0.75); backdrop-filter: blur(10px); border: 1px solid rgba(212,175,55,0.3);">
-                                <i class="fa-solid fa-dove text-mariba-gold3 text-xs"></i>
-                                <span class="text-white text-xs font-semibold tracking-wide">Dignified & Compassionate</span>
-                            </div>
-                        </div>
-                    </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+
+                <!-- Mobile image — above text on small screens -->
+                <div class="lg:hidden w-full h-56 sm:h-72 overflow-hidden rounded-[1.5rem] mb-8"
+                     style="border: 1px solid rgba(212,175,55,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.4);"
+                     data-aos="fade-down" data-aos-duration="800">
+                    <img src="https://i.postimg.cc/v8JyfhG6/funeral-service.jpg"
+                         alt="Mariba Funeral Service"
+                         class="w-full h-full object-cover"
+                         style="filter: brightness(0.9) contrast(1.05);">
                 </div>
+
                 <!-- Text Content -->
                 <div data-aos="fade-right" data-aos-duration="1000" class="text-center lg:text-left">
-                    <div class="inline-block px-3 sm:px-4 py-1.5 rounded-full border border-mariba-gold3/40 bg-mariba-gold3/10 text-mariba-gold3 text-xs sm:text-sm font-semibold tracking-widest uppercase mb-4 sm:mb-6 backdrop-blur-sm">
-                        Your Loved Ones Deserve The Best
-                    </div>
                     <h1 class="hero-h1 font-serif text-white font-bold leading-tight mb-4 sm:mb-6">
                         Comprehensive Funeral <span class="text-mariba-gold3 italic">Care &amp; Support</span>
                     </h1>
@@ -198,36 +203,7 @@
                         </a>
                     </div>
                 </div>
-                <!-- RIGHT: Funeral Service Image — desktop only -->
-                <div class="hidden lg:flex items-center justify-end" data-aos="fade-left" data-aos-duration="1200" data-aos-delay="200">
-                    <div class="relative">
-                        <!-- Ambient glow rings -->
-                        <div class="absolute -inset-4 rounded-[2.5rem] border border-mariba-gold3/15" style="animation: pulse 5s ease-in-out infinite;"></div>
-                        <div class="absolute -inset-8 rounded-[3rem] border border-mariba-gold3/08" style="animation: pulse 7s ease-in-out infinite;"></div>
-                        <!-- Image frame -->
-                        <div class="relative w-[480px] h-[520px] rounded-[2rem] overflow-hidden"
-                             style="box-shadow: 0 0 80px rgba(212,175,55,0.12), 0 30px 60px rgba(0,0,0,0.5); border: 1px solid rgba(212,175,55,0.3);">
-                            <img src="https://i.postimg.cc/v8JyfhG6/funeral-service.jpg"
-                                 alt="Mariba Funeral Service"
-                                 class="w-full h-full object-cover"
-                                 style="filter: brightness(0.92) contrast(1.05);">
-                            <!-- Subtle dark vignette overlay at bottom -->
-                            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(4,23,11,0.55) 0%, rgba(4,23,11,0.1) 40%, transparent 70%);"></div>
-                            <!-- Gold shimmer top-edge accent -->
-                            <div class="absolute top-0 left-0 right-0 h-px" style="background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent);"></div>
-                            <!-- Trust badge bottom-left -->
-                            <div class="absolute bottom-5 left-5 flex items-center gap-3 px-4 py-2.5 rounded-full"
-                                 style="background: rgba(4,23,11,0.75); backdrop-filter: blur(10px); border: 1px solid rgba(212,175,55,0.3);">
-                                <i class="fa-solid fa-dove text-mariba-gold3 text-sm"></i>
-                                <span class="text-white text-xs font-semibold tracking-wide">Dignified & Compassionate</span>
-                            </div>
-                        </div>
-                        <!-- Decorative gold dots -->
-                        <div class="absolute -top-3 -right-3 w-6 h-6 rounded-full bg-mariba-gold3 opacity-70 blur-sm"></div>
-                        <div class="absolute -bottom-4 -left-4 w-4 h-4 rounded-full bg-mariba-gold3 opacity-50 blur-sm"></div>
-                        <div class="absolute top-1/4 -right-6 w-3 h-3 rounded-full bg-mariba-gold3 opacity-60"></div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
